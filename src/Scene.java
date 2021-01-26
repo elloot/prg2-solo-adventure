@@ -7,6 +7,8 @@ public class Scene {
     private int id;
     private String body;
 
+    //TODO: JavaDoc getters and setters
+
     /**
      * Constructs a scene with a body.
      * @param body A String describing what part of the solo adventure's story the player is currently in.

@@ -10,6 +10,8 @@ public class Link {
     private int targetId;
     private String description;
 
+    //TODO: JavaDoc getters and setters
+
     /**
      * Constructs a link with an id and data on where it leads, which scene it is linked to and what it does story-wise.
      * @param id The id of the link.
