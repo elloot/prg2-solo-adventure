@@ -39,34 +39,58 @@ public class Link {
         this.description = description;
     }
 
+    /**
+     * @param id The id of the Link.
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     * @param storyId The id of the scene to which the link is linked.
+     */
     public void setStoryId(int storyId) {
         this.storyId = storyId;
     }
 
+    /**
+     * @param targetId The id of the scene to which the link leads.
+     */
     public void setTargetId(int targetId) {
         this.targetId = targetId;
     }
 
+    /**
+     * @param description A description of what the player does if it chooses this link.
+     */
     public void setDescription(String description) {
         this.description = description;
     }
 
+    /**
+     * @return The id of the link.
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * @return The id of the scene to which the link is linked.
+     */
     public int getStoryId() {
         return storyId;
     }
 
+    /**
+     * @return The id of the scene to which the link leads.
+     */
     public int getTargetId() {
         return targetId;
     }
 
+    /**
+     * @return The description of what the player does if it chooses this link.
+     */
     public String getDescription() {
         return description;
     }
