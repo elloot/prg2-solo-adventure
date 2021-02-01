@@ -11,6 +11,8 @@ public class StoryGUI {
     private JComboBox<Scene> sceneSelector;
     private JButton confirmSelection;
 
+    //TODO: JavaDoc
+
     public JTextPane getSceneBody() {
         return sceneBody;
     }
