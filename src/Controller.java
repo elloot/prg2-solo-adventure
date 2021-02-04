@@ -21,6 +21,19 @@ public class Controller {
         mySQLHandler = new MySQLHandler();
         setScenes();
         setLinks();
+        updateCurrentScene(1);
+        updateCurrentLinks(1);
+    }
+
+    private void updateCurrentScene(int sceneId) {
+        view.getSceneBody().setText(model.getScene(sceneId).getBody());
+    }
+
+    private void updateCurrentLinks(int sceneId) {
+        ArrayList<Link> links = model.getLinks(sceneId);
+        for (Link link : links) {
+            view.getSceneSelector().addItem(link);
+        }
     }
 
     /**
