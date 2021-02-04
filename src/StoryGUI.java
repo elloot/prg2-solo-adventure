@@ -9,7 +9,7 @@ import java.awt.*;
 public class StoryGUI {
     private JPanel panel;
     private JTextPane sceneBody;
-    private JComboBox<Scene> sceneSelector;
+    private JComboBox<Link> sceneSelector;
     private JButton confirmSelection;
 
     //TODO: JavaDoc
@@ -32,7 +32,7 @@ public class StoryGUI {
         return sceneBody;
     }
 
-    public JComboBox<Scene> getSceneSelector() {
+    public JComboBox<Link> getSceneSelector() {
         return sceneSelector;
     }
 
