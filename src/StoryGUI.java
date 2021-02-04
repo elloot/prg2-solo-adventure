@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 
 /**
  * A View class to show the current scene and options to the player of the solo adventure. A StoryGUI has a text
@@ -12,6 +13,20 @@ public class StoryGUI {
     private JButton confirmSelection;
 
     //TODO: JavaDoc
+
+    public StoryGUI(String title) {
+        JFrame frame = new JFrame(title);
+        frame.setPreferredSize(new Dimension(500, 700));
+        frame.setContentPane(getPanel());
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }
+
+    public JPanel getPanel() {
+        return panel;
+    }
 
     public JTextPane getSceneBody() {
         return sceneBody;
