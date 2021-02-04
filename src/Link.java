@@ -92,4 +92,12 @@ public class Link {
     public String getDescription() {
         return description;
     }
+
+    /**
+     * @return The description of the link.
+     */
+    @Override
+    public String toString() {
+        return description;
+    }
 }
