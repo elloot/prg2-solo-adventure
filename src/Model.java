@@ -2,8 +2,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Model {
-    // The keys of the links are their story ids
-    private HashMap<Integer, Link> links;
+    private HashMap<Integer, ArrayList<Link>> links;
     private HashMap<Integer, Scene> scenes;
 
     // TODO: JavaDoc
@@ -21,7 +20,10 @@ public class Model {
 
     public void setLinks(ArrayList<Link> l) {
         for (Link link : l) {
-            links.put(link.getStoryId(), link);
+            if (!links.containsKey(link.getSceneId())) {
+                links.put(link.getSceneId(), new ArrayList<>());
+            }
+            links.get(link.getSceneId()).add(link);
         }
     }
 
@@ -29,8 +31,8 @@ public class Model {
         return scenes.get(id);
     }
 
-    public Link getLink(int id) {
-        return links.get(id);
+    public ArrayList<Link> getLinks(int sceneId) {
+        return links.get(sceneId);
     }
 
     public void addScene(Scene s) {
@@ -38,10 +40,13 @@ public class Model {
     }
 
     public void addLink(Link l) {
-        links.put(l.getId(), l);
+        if (!links.containsKey(l.getSceneId())) {
+            links.put(l.getSceneId(), new ArrayList<>());
+        }
+        links.get(l.getSceneId()).add(l);
     }
 
-    public HashMap<Integer, Link> getLinks() {
+    public HashMap<Integer, ArrayList<Link>> getLinks() {
         return links;
     }
 
