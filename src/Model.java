@@ -13,13 +13,13 @@ public class Model {
         scenes = new HashMap<>();
     }
 
-    public void addScenes(ArrayList<Scene> s) {
+    public void setScenes(ArrayList<Scene> s) {
         for (Scene scene : s) {
             scenes.put(scene.getId(), scene);
         }
     }
 
-    public void addLinks(ArrayList<Link> l) {
+    public void setLinks(ArrayList<Link> l) {
         for (Link link : l) {
             links.put(link.getStoryId(), link);
         }
@@ -45,15 +45,7 @@ public class Model {
         return links;
     }
 
-    public void setLinks(HashMap<Integer, Link> links) {
-        this.links = links;
-    }
-
     public HashMap<Integer, Scene> getScenes() {
         return scenes;
-    }
-
-    public void setScenes(HashMap<Integer, Scene> scenes) {
-        this.scenes = scenes;
     }
 }

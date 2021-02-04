@@ -27,14 +27,14 @@ public class Controller {
      * Populates the scene hashmap in the model with scenes gathered from a database.
      */
     private void setScenes() {
-        model.addScenes(getScenes());
+        model.setScenes(getScenes());
     }
 
     /**
      * Populates the links hashmap in the model with links gathered from a database.
      */
     private void setLinks() {
-        model.addLinks(getLinks());
+        model.setLinks(getLinks());
     }
 
     /**
