@@ -1,10 +1,29 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Model {
+    // The keys of the links are their story ids
     private HashMap<Integer, Link> links;
     private HashMap<Integer, Scene> scenes;
 
-    // TODO: JavaDoc and constructor
+    // TODO: JavaDoc
+
+    public Model() {
+        links = new HashMap<>();
+        scenes = new HashMap<>();
+    }
+
+    public void addScenes(ArrayList<Scene> s) {
+        for (Scene scene : s) {
+            scenes.put(scene.getId(), scene);
+        }
+    }
+
+    public void addLinks(ArrayList<Link> l) {
+        for (Link link : l) {
+            links.put(link.getStoryId(), link);
+        }
+    }
 
     public Scene getScene(int id) {
         return scenes.get(id);
