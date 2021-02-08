@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.ArrayList;
 
 /**
@@ -9,6 +10,7 @@ public class Controller {
     private StoryGUI view;
     private Model model;
     private MySQLHandler mySQLHandler;
+    private Scene currentScene;
 
     /**
      * Constructs a controller with a model and a view.
@@ -21,8 +23,38 @@ public class Controller {
         mySQLHandler = new MySQLHandler();
         setScenes();
         setLinks();
-        updateCurrentScene(1);
-        updateCurrentLinks(1);
+        currentScene = getScene(1);
+        updateView();
+        setConfirmButtonListener();
+    }
+
+    private void setConfirmButtonListener() {
+        getConfirmButton().addActionListener(e -> {
+            Link currentLink = (Link) view.getSceneSelector().getSelectedItem();
+            if (currentLink != null) {
+                setCurrentScene(currentLink.getTargetId());
+                updateView();
+            } else {
+                setViewSceneText("That's the end of the adventure, thanks for playing!");
+            }
+        });
+    }
+
+    private void setViewSceneText(String text) {
+        view.getSceneBody().setText(text);
+    }
+
+    private void setCurrentScene(int id) {
+        currentScene = getScene(id);
+    }
+
+    private void updateView() {
+        updateCurrentScene(currentScene.getId());
+        updateCurrentLinks(currentScene.getId());
+    }
+
+    private JButton getConfirmButton() {
+        return view.getConfirmSelection();
     }
 
     private Scene getScene(int id) {
