@@ -25,6 +25,10 @@ public class Controller {
         updateCurrentLinks(1);
     }
 
+    private Scene getScene(int id) {
+        return model.getScene(id);
+    }
+
     private void updateCurrentScene(int sceneId) {
         view.getSceneBody().setText(model.getScene(sceneId).getBody());
     }
