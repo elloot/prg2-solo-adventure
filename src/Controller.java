@@ -12,6 +12,8 @@ public class Controller {
     private MySQLHandler mySQLHandler;
     private Scene currentScene;
 
+    //TODO: JavaDoc
+
     /**
      * Constructs a controller with a model and a view.
      * @param m A model that will contain the story of a solo adventure.
