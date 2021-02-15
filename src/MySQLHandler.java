@@ -52,4 +52,14 @@ public class MySQLHandler {
             return new ArrayList<>();
         }
     }
+
+    public void addScene(Scene s) {
+        try {
+            Statement stmt = connection.createStatement();
+            String SQLQuery = "INSERT INTO story(body) VALUES ('" + s.getBody() + "')";
+            ResultSet resultSet = stmt.executeQuery(SQLQuery);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
 }
