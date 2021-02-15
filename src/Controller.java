@@ -43,6 +43,33 @@ public class Controller {
         setConfirmButtonListener();
     }
 
+    private JComboBox<Scene> getSceneSelector() {
+        return editorView.getSceneSelector();
+    }
+
+    private void addScene() {
+        Scene scene = getSelectedScene();
+
+    }
+
+    private Scene getSelectedScene() {
+        return (Scene) editorView.getSceneSelector().getSelectedItem();
+    }
+
+    private String getSceneBody() {
+        return editorView.getSceneBody().getText();
+    }
+
+    private void addAddSceneButtonListener() {
+        getAddSceneButton().addActionListener(e -> {
+            if (getSelectedScene().getBody().equals(getSceneBody())) addScene();
+        });
+    }
+
+    private JButton getAddSceneButton() {
+        return editorView.getAddSceneButton();
+    }
+
     private void setConfirmButtonListener() {
         getConfirmButton().addActionListener(e -> {
             Link currentLink = (Link) view.getSceneSelector().getSelectedItem();
