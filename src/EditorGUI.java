@@ -29,4 +29,44 @@ public class EditorGUI {
     private JPanel getPanel() {
         return panel;
     }
+
+    public JButton getAddSceneButton() {
+        return addSceneButton;
+    }
+
+    public JComboBox getSceneSelector() {
+        return sceneSelector;
+    }
+
+    public JTextPane getSceneBody() {
+        return sceneBody;
+    }
+
+    public JButton getEditSceneButton() {
+        return editSceneButton;
+    }
+
+    public JComboBox getLinkSelector() {
+        return linkSelector;
+    }
+
+    public JTextPane getLinkDescription() {
+        return linkDescription;
+    }
+
+    public JButton getAddLinkButton() {
+        return addLinkButton;
+    }
+
+    public JButton getEditLinkButton() {
+        return editLinkButton;
+    }
+
+    public JButton getRemoveSceneButton() {
+        return removeSceneButton;
+    }
+
+    public JButton getRemoveLinkButton() {
+        return removeLinkButton;
+    }
 }
