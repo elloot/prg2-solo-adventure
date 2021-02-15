@@ -3,11 +3,11 @@ import java.awt.*;
 
 public class EditorGUI {
     private JPanel panel;
-    private JComboBox sceneSelector;
+    private JComboBox<Scene> sceneSelector;
     private JTextPane sceneBody;
     private JButton addSceneButton;
     private JButton editSceneButton;
-    private JComboBox linkSelector;
+    private JComboBox<Scene> linkSelector;
     private JTextPane linkDescription;
     private JPanel sceneButtonsPanel;
     private JButton addLinkButton;
@@ -34,7 +34,7 @@ public class EditorGUI {
         return addSceneButton;
     }
 
-    public JComboBox getSceneSelector() {
+    public JComboBox<Scene> getSceneSelector() {
         return sceneSelector;
     }
 
@@ -46,7 +46,7 @@ public class EditorGUI {
         return editSceneButton;
     }
 
-    public JComboBox getLinkSelector() {
+    public JComboBox<Scene> getLinkSelector() {
         return linkSelector;
     }
 
