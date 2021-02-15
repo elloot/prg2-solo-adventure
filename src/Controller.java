@@ -11,6 +11,7 @@ public class Controller {
     private Model model;
     private MySQLHandler mySQLHandler;
     private Scene currentScene;
+    private EditorGUI editorView;
 
     //TODO: JavaDoc
 
@@ -22,6 +23,18 @@ public class Controller {
     public Controller(Model m, StoryGUI v) {
         model = m;
         view = v;
+        mySQLHandler = new MySQLHandler();
+        setScenes();
+        setLinks();
+        currentScene = getScene(1);
+        updateView();
+        setConfirmButtonListener();
+    }
+
+    public Controller(Model m, StoryGUI v, EditorGUI ev) {
+        model = m;
+        view = v;
+        editorView = ev;
         mySQLHandler = new MySQLHandler();
         setScenes();
         setLinks();
