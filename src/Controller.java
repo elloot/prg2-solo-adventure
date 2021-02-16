@@ -31,16 +31,11 @@ public class Controller {
         setConfirmButtonListener();
     }
 
-    public Controller(Model m, StoryGUI v, EditorGUI ev) {
+    public Controller(Model m, EditorGUI ev) {
         model = m;
-        view = v;
         editorView = ev;
         mySQLHandler = new MySQLHandler();
-        setScenes();
-        setLinks();
-        currentScene = getScene(1);
-        updateView();
-        setConfirmButtonListener();
+        addAddSceneButtonListener();
     }
 
     private JComboBox<Scene> getSceneSelector() {
@@ -48,12 +43,11 @@ public class Controller {
     }
 
     private void addScene() {
-        Scene scene = getSelectedScene();
-
+        model.addScene(mySQLHandler.addScene(JOptionPane.showInputDialog("Input the body of the scene: ")));
     }
 
     private Scene getSelectedScene() {
-        return (Scene) editorView.getSceneSelector().getSelectedItem();
+        return (Scene) getSceneSelector().getSelectedItem();
     }
 
     private String getSceneBody() {
@@ -62,7 +56,7 @@ public class Controller {
 
     private void addAddSceneButtonListener() {
         getAddSceneButton().addActionListener(e -> {
-            if (getSelectedScene().getBody().equals(getSceneBody())) addScene();
+            addScene();
         });
     }
 
