@@ -53,13 +53,27 @@ public class MySQLHandler {
         }
     }
 
-    public void addScene(Scene s) {
+    public int getSceneId(String s) {
         try {
             Statement stmt = connection.createStatement();
-            String SQLQuery = "INSERT INTO story(body) VALUES ('" + s.getBody() + "')";
+            String SQLQuery = "SELECT id FROM story WHERE body = '" + s + "'";
             ResultSet resultSet = stmt.executeQuery(SQLQuery);
+            return resultSet.getInt("id");
         } catch (SQLException ex) {
             ex.printStackTrace();
+            return -1;
+        }
+    }
+
+    public Scene addScene(String s) {
+        try {
+            Statement stmt = connection.createStatement();
+            String SQLQuery = "INSERT INTO story(body) VALUES ('" + s + "')";
+            stmt.execute(SQLQuery);
+            return new Scene(getSceneId(s), s);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return new Scene(-1, "");
         }
     }
 }
