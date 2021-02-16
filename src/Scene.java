@@ -43,4 +43,8 @@ public class Scene {
         this.body = body;
     }
 
+    @Override
+    public String toString() {
+        return body;
+    }
 }
