@@ -14,7 +14,9 @@
             <preferred-size width="150" height="50"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <editable value="false"/>
+        </properties>
       </component>
       <component id="49d66" class="javax.swing.JTextPane" binding="linkDescription">
         <constraints>
@@ -22,7 +24,9 @@
             <preferred-size width="150" height="50"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <editable value="false"/>
+        </properties>
       </component>
       <component id="9071" class="javax.swing.JComboBox" binding="sceneSelector">
         <constraints>
