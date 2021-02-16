@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * A Controller class that connects the Model and the View of this solo adventure together. It transfers the data on
@@ -35,7 +36,33 @@ public class Controller {
         model = m;
         editorView = ev;
         mySQLHandler = new MySQLHandler();
+        setScenes();
+        setLinks();
         addAddSceneButtonListener();
+        updateEditorView();
+    }
+
+    private void updateEditorView() {
+        updateEditorScenes();
+        updateEditorLinks();
+    }
+
+    private void updateEditorScenes() {
+        HashMap<Integer, Scene> scenes = model.getScenes();
+        editorView.getSceneSelector().removeAllItems();
+        Object[] keys = scenes.keySet().toArray();
+        for (Object key : keys) {
+            editorView.getSceneSelector().addItem(scenes.get(key));
+        }
+    }
+
+    private void updateCurrentEditorScene() {
+        Scene currentScene = (Scene) editorView.getSceneSelector().getSelectedItem();
+        editorView.getSceneBody().setText(currentScene.getBody());
+    }
+
+    private void updateEditorLinks() {
+
     }
 
     private JComboBox<Scene> getSceneSelector() {
