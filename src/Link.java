@@ -13,13 +13,13 @@ public class Link {
     /**
      * Constructs a link with an id and data on where it leads, which scene it is linked to and what it does story-wise.
      * @param id The id of the link.
-     * @param storyId The id of the scene to which the link is linked.
+     * @param sceneId The id of the scene to which the link is linked.
      * @param targetId The id of the scene to which the link leads.
      * @param description A description of what the player does if it chooses this link.
      */
-    public Link(int id, int storyId, int targetId, String description) {
+    public Link(int id, int sceneId, int targetId, String description) {
         this.id = id;
-        this.storyId = storyId;
+        this.sceneId = sceneId;
         this.targetId = targetId;
         this.description = description;
     }
