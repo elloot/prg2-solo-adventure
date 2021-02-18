@@ -46,13 +46,14 @@ public class Controller {
 
     private void addLinkSelectorListener() {
         editorView.getLinkSelector().addActionListener(e -> {
-            updateCurrentEditorLink();
+            if (editorView.getLinkSelector().getItemCount() != 0) updateCurrentEditorLink();
         });
     }
 
     private void addSceneSelectorListener() {
         editorView.getSceneSelector().addActionListener(e -> {
             updateCurrentEditorScene();
+            updateEditorLinks();
         });
     }
 
