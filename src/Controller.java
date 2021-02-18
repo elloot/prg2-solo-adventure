@@ -54,10 +54,20 @@ public class Controller {
         return (Scene) editorView.getSceneSelector().getSelectedItem();
     }
 
+    private Link getSelectedEditorLink() {
+        return (Link) editorView.getLinkSelector().getSelectedItem();
+    }
+
     private void updateEditorView() {
         updateEditorScenes();
         updateCurrentEditorScene();
         updateEditorLinks();
+        updateCurrentEditorLink();
+    }
+
+    private void updateCurrentEditorLink() {
+        Link currentLink = getSelectedEditorLink();
+        editorView.getLinkDescription().setText(currentLink.getDescription());
     }
 
     private void updateEditorScenes() {
