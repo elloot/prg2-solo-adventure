@@ -42,14 +42,27 @@ public class Controller {
         updateEditorView();
     }
 
+    private void clearEditorSceneSelector() {
+        editorView.getSceneSelector().removeAllItems();
+    }
+
+    private void clearEditorLinkSelector() {
+        editorView.getLinkSelector().removeAllItems();
+    }
+
+    private Scene getSelectedEditorScene() {
+        return (Scene) editorView.getSceneSelector().getSelectedItem();
+    }
+
     private void updateEditorView() {
         updateEditorScenes();
+        updateCurrentEditorScene();
         updateEditorLinks();
     }
 
     private void updateEditorScenes() {
         HashMap<Integer, Scene> scenes = model.getScenes();
-        editorView.getSceneSelector().removeAllItems();
+        clearEditorSceneSelector();
         Object[] keys = scenes.keySet().toArray();
         for (Object key : keys) {
             editorView.getSceneSelector().addItem(scenes.get(key));
@@ -57,12 +70,16 @@ public class Controller {
     }
 
     private void updateCurrentEditorScene() {
-        Scene currentScene = (Scene) editorView.getSceneSelector().getSelectedItem();
+        Scene currentScene = getSelectedEditorScene();
         editorView.getSceneBody().setText(currentScene.getBody());
     }
 
     private void updateEditorLinks() {
-
+        ArrayList<Link> links = model.getLinks(getSelectedEditorScene().getId());
+        clearEditorLinkSelector();
+        for (Link link : links) {
+            editorView.getLinkSelector().addItem(link);
+        }
     }
 
     private JComboBox<Scene> getSceneSelector() {
