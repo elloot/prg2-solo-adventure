@@ -45,8 +45,8 @@ public class Controller {
     }
 
     private void addLinkSelectorListener() {
-        editorView.getLinkSelector().addActionListener(e -> {
-            if (editorView.getLinkSelector().getItemCount() != 0) updateCurrentEditorLink();
+        getEditorLinkSelector().addActionListener(e -> {
+            if (getEditorLinkSelector().getItemCount() != 0) updateCurrentEditorLink();
         });
     }
 
@@ -62,7 +62,7 @@ public class Controller {
     }
 
     private void clearEditorLinkSelector() {
-        editorView.getLinkSelector().removeAllItems();
+        getEditorLinkSelector().removeAllItems();
     }
 
     private Scene getSelectedEditorScene() {
@@ -70,7 +70,7 @@ public class Controller {
     }
 
     private Link getSelectedEditorLink() {
-        return (Link) editorView.getLinkSelector().getSelectedItem();
+        return (Link) getEditorLinkSelector().getSelectedItem();
     }
 
     private void updateEditorView() {
@@ -104,12 +104,16 @@ public class Controller {
         ArrayList<Link> links = model.getLinks(getSelectedEditorScene().getId());
         clearEditorLinkSelector();
         for (Link link : links) {
-            editorView.getLinkSelector().addItem(link);
+            getEditorLinkSelector().addItem(link);
         }
     }
 
     private JComboBox<Scene> getEditorSceneSelector() {
         return editorView.getSceneSelector();
+    }
+
+    private JComboBox<Link> getEditorLinkSelector() {
+        return editorView.getLinkSelector();
     }
 
     private void addScene() {
