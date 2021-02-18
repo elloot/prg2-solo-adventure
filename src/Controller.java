@@ -44,6 +44,10 @@ public class Controller {
         updateEditorView();
     }
 
+    private void setEditorSceneBody(String text) {
+        editorView.getSceneBody().setText(text);
+    }
+
     private void setEditorLinkDescription(String text) {
         editorView.getLinkDescription().setText(text);
     }
@@ -101,7 +105,7 @@ public class Controller {
 
     private void updateCurrentEditorScene() {
         Scene currentScene = getSelectedEditorScene();
-        editorView.getSceneBody().setText(currentScene.getBody());
+        setEditorSceneBody(currentScene.getBody());
     }
 
     private void updateEditorLinks() {
