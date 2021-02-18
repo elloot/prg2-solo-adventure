@@ -40,7 +40,14 @@ public class Controller {
         setLinks();
         addAddSceneButtonListener();
         addSceneSelectorListener();
+        addLinkSelectorListener();
         updateEditorView();
+    }
+
+    private void addLinkSelectorListener() {
+        editorView.getLinkSelector().addActionListener(e -> {
+            updateCurrentEditorLink();
+        });
     }
 
     private void addSceneSelectorListener() {
