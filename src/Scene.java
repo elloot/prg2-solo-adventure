@@ -45,6 +45,6 @@ public class Scene {
 
     @Override
     public String toString() {
-        return body;
+        return id + "";
     }
 }
