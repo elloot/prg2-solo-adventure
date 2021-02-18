@@ -18,7 +18,7 @@ public class EditorGUI {
 
     public EditorGUI(String title) {
         JFrame frame = new JFrame(title);
-        frame.setPreferredSize(new Dimension(500, 700));
+        frame.setPreferredSize(new Dimension(700, 700));
         frame.setContentPane(getPanel());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
