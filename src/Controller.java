@@ -121,9 +121,7 @@ public class Controller {
     }
 
     private void addAddSceneButtonListener() {
-        getAddSceneButton().addActionListener(e -> {
-            addScene();
-        });
+        getAddSceneButton().addActionListener(e -> addScene());
     }
 
     private JButton getAddSceneButton() {
