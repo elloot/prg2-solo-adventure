@@ -51,14 +51,14 @@ public class Controller {
     }
 
     private void addSceneSelectorListener() {
-        editorView.getSceneSelector().addActionListener(e -> {
+        getEditorSceneSelector().addActionListener(e -> {
             updateCurrentEditorScene();
             updateEditorLinks();
         });
     }
 
     private void clearEditorSceneSelector() {
-        editorView.getSceneSelector().removeAllItems();
+        getEditorSceneSelector().removeAllItems();
     }
 
     private void clearEditorLinkSelector() {
@@ -66,7 +66,7 @@ public class Controller {
     }
 
     private Scene getSelectedEditorScene() {
-        return (Scene) editorView.getSceneSelector().getSelectedItem();
+        return (Scene) getEditorSceneSelector().getSelectedItem();
     }
 
     private Link getSelectedEditorLink() {
@@ -91,7 +91,7 @@ public class Controller {
         Object[] keys = scenes.keySet().toArray();
         for (Object key : keys) {
             int id = (int) key;
-            editorView.getSceneSelector().addItem(scenes.get(id));
+            getEditorSceneSelector().addItem(scenes.get(id));
         }
     }
 
@@ -108,7 +108,7 @@ public class Controller {
         }
     }
 
-    private JComboBox<Scene> getSceneSelector() {
+    private JComboBox<Scene> getEditorSceneSelector() {
         return editorView.getSceneSelector();
     }
 
