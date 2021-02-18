@@ -7,7 +7,7 @@ public class EditorGUI {
     private JTextPane sceneBody;
     private JButton addSceneButton;
     private JButton editSceneButton;
-    private JComboBox<Scene> linkSelector;
+    private JComboBox<Link> linkSelector;
     private JTextPane linkDescription;
     private JPanel sceneButtonsPanel;
     private JButton addLinkButton;
@@ -46,7 +46,7 @@ public class EditorGUI {
         return editSceneButton;
     }
 
-    public JComboBox<Scene> getLinkSelector() {
+    public JComboBox<Link> getLinkSelector() {
         return linkSelector;
     }
 
