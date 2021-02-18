@@ -44,6 +44,10 @@ public class Controller {
         updateEditorView();
     }
 
+    private void setEditorLinkDescription(String text) {
+        editorView.getLinkDescription().setText(text);
+    }
+
     private void addLinkSelectorListener() {
         getEditorLinkSelector().addActionListener(e -> {
             if (getEditorLinkSelector().getItemCount() != 0) updateCurrentEditorLink();
@@ -82,7 +86,7 @@ public class Controller {
 
     private void updateCurrentEditorLink() {
         Link currentLink = getSelectedEditorLink();
-        editorView.getLinkDescription().setText(currentLink.getDescription());
+        setEditorLinkDescription(currentLink.getDescription());
     }
 
     private void updateEditorScenes() {
@@ -103,8 +107,12 @@ public class Controller {
     private void updateEditorLinks() {
         ArrayList<Link> links = model.getLinks(getSelectedEditorScene().getId());
         clearEditorLinkSelector();
-        for (Link link : links) {
-            getEditorLinkSelector().addItem(link);
+        if (links != null) {
+            for (Link link : links) {
+                getEditorLinkSelector().addItem(link);
+            }
+        } else {
+            setEditorLinkDescription("");
         }
     }
 
