@@ -90,7 +90,8 @@ public class Controller {
         clearEditorSceneSelector();
         Object[] keys = scenes.keySet().toArray();
         for (Object key : keys) {
-            editorView.getSceneSelector().addItem(scenes.get(key));
+            int id = (int) key;
+            editorView.getSceneSelector().addItem(scenes.get(id));
         }
     }
 
