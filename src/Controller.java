@@ -116,14 +116,6 @@ public class Controller {
         model.addScene(mySQLHandler.addScene(JOptionPane.showInputDialog("Input the body of the scene: ")));
     }
 
-    private Scene getSelectedScene() {
-        return (Scene) getSceneSelector().getSelectedItem();
-    }
-
-    private String getSceneBody() {
-        return editorView.getSceneBody().getText();
-    }
-
     private void addAddSceneButtonListener() {
         getAddSceneButton().addActionListener(e -> {
             addScene();
