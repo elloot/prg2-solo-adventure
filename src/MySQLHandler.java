@@ -58,6 +58,7 @@ public class MySQLHandler {
             Statement stmt = connection.createStatement();
             String SQLQuery = "SELECT id FROM story WHERE body = '" + s + "'";
             ResultSet resultSet = stmt.executeQuery(SQLQuery);
+            resultSet.next();
             return resultSet.getInt("id");
         } catch (SQLException ex) {
             ex.printStackTrace();
