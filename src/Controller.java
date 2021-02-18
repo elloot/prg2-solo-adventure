@@ -168,7 +168,7 @@ public class Controller {
     }
 
     private void updateCurrentScene(int sceneId) {
-        view.getSceneBody().setText(model.getScene(sceneId).getBody());
+        setViewSceneText(model.getScene(sceneId).getBody());
     }
 
     private void updateCurrentLinks(int sceneId) {
