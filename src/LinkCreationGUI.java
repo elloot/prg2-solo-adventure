@@ -6,7 +6,7 @@ public class LinkCreationGUI {
     private JTextPane targetSceneBody;
     private JTextPane linkDescription;
     private JTextPane sourceSceneBody;
-    private JComboBox targetSceneSelector;
+    private JComboBox<Scene> targetSceneSelector;
     private JPanel textFieldPanel;
     private JButton addLinkButton;
 
@@ -28,7 +28,7 @@ public class LinkCreationGUI {
         return linkDescription;
     }
 
-    public JComboBox getTargetSceneSelector() {
+    public JComboBox<Scene> getTargetSceneSelector() {
         return targetSceneSelector;
     }
 
