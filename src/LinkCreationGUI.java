@@ -6,6 +6,6 @@ public class LinkCreationGUI {
     private JTextPane linkDescription;
     private JTextPane sourceSceneBody;
     private JComboBox targetSceneSelector;
-    private JPanel textFeildPanel;
+    private JPanel textFieldPanel;
     private JButton addLinkButton;
 }
