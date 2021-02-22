@@ -13,6 +13,7 @@ public class Controller {
     private MySQLHandler mySQLHandler;
     private Scene currentScene;
     private EditorGUI editorView;
+    private LinkCreationGUI linkCreationGUI;
 
     //TODO: JavaDoc
 
@@ -39,9 +40,16 @@ public class Controller {
         setScenes();
         setLinks();
         addAddSceneButtonListener();
+        addAddLinkListener();
         addSceneSelectorListener();
         addLinkSelectorListener();
         updateEditorView();
+    }
+
+    private void addAddLinkListener() {
+        editorView.getAddLinkButton().addActionListener(e -> {
+            linkCreationGUI = new LinkCreationGUI("Link creation");
+        });
     }
 
     private void setEditorSceneBody(String text) {
