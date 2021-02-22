@@ -14,7 +14,7 @@ public class LinkCreationGUI {
         JFrame frame = new JFrame(title);
         frame.setPreferredSize(new Dimension(700, 700));
         frame.setContentPane(getPanel());
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
