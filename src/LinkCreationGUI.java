@@ -28,6 +28,10 @@ public class LinkCreationGUI {
         return linkDescription;
     }
 
+    public JTextPane getSourceSceneBody() {
+        return sourceSceneBody;
+    }
+
     public JComboBox<Scene> getTargetSceneSelector() {
         return targetSceneSelector;
     }
