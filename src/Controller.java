@@ -46,9 +46,60 @@ public class Controller {
         updateEditorView();
     }
 
+    private void updateLinkGUI() {
+        updateLinkGUIScenes();
+        updateLinkGUITargetScene();
+        updateLinkGUISourceScene();
+    }
+
+    private void updateLinkGUITargetScene() {
+        linkCreationGUI.getTargetSceneBody().setText(getLinkGUISelectedTargetScene().getBody());
+    }
+
+    private void addLinkGUISceneSelectorListener() {
+        getLinkGUISceneSelector().addActionListener(e -> {
+            if (getLinkGUISceneSelector().getItemCount() != 0) updateLinkGUITargetScene();
+        });
+    }
+
+    private Scene getLinkGUISelectedTargetScene() {
+        return (Scene) getLinkGUISceneSelector().getSelectedItem();
+    }
+
+    private JComboBox<Scene> getLinkGUISceneSelector() {
+        return linkCreationGUI.getTargetSceneSelector();
+    }
+
+    private void clearLinkGUISceneSelector() {
+        getLinkGUISceneSelector().removeAllItems();
+    }
+
+    private void updateLinkGUIScenes() {
+        HashMap<Integer, Scene> scenes = model.getScenes();
+        clearLinkGUISceneSelector();
+        Object[] keys = scenes.keySet().toArray();
+        for (Object key : keys) {
+            int id = (int) key;
+            getLinkGUISceneSelector().addItem(scenes.get(id));
+        }
+    }
+
+    private void updateLinkGUISourceScene() {
+        linkCreationGUI.getSourceSceneBody().setText(getLinkGUISelectedTargetScene().getBody());
+    }
+
+    private void addLinkGUIAddLinkListener() {
+        linkCreationGUI.getAddLinkButton().addActionListener(e -> {
+
+        });
+    }
+
     private void addAddLinkListener() {
         editorView.getAddLinkButton().addActionListener(e -> {
             linkCreationGUI = new LinkCreationGUI("Link creation");
+            addLinkGUIAddLinkListener();
+            updateLinkGUI();
+            addLinkGUISceneSelectorListener();
         });
     }
 
