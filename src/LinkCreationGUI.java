@@ -20,6 +20,22 @@ public class LinkCreationGUI {
         frame.setVisible(true);
     }
 
+    public JTextPane getTargetSceneBody() {
+        return targetSceneBody;
+    }
+
+    public JTextPane getLinkDescription() {
+        return linkDescription;
+    }
+
+    public JComboBox getTargetSceneSelector() {
+        return targetSceneSelector;
+    }
+
+    public JButton getAddLinkButton() {
+        return addLinkButton;
+    }
+
     private JPanel getPanel() {
         return panel;
     }
