@@ -46,6 +46,10 @@ public class Model {
         links.get(l.getSceneId()).add(l);
     }
 
+    public void removeLink(Link l) {
+        links.get(l.getSceneId()).remove(l);
+    }
+
     public HashMap<Integer, ArrayList<Link>> getLinks() {
         return links;
     }
