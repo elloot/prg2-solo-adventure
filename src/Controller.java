@@ -51,8 +51,11 @@ public class Controller {
 
     private void removeSelectedScene() {
         Scene scene = getSelectedEditorScene();
-        ArrayList<Link> links = model.getLinks(scene.getId());
+        removeLinks(model.getLinks(scene.getId()));
         mySQLHandler.removeScene(scene.getId());
+    }
+
+    private void removeLinks(ArrayList<Link> links) {
         if (links != null && links.size() > 0) {
             for (Link link : links) {
                 removeLink(link);
