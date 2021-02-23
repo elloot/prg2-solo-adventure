@@ -285,8 +285,10 @@ public class Controller {
     private void updateCurrentLinks(int sceneId) {
         ArrayList<Link> links = model.getLinks(sceneId);
         view.getSceneSelector().removeAllItems();
-        for (Link link : links) {
-            view.getSceneSelector().addItem(link);
+        if (links != null && links.size() > 0) {
+            for (Link link : links) {
+                view.getSceneSelector().addItem(link);
+            }
         }
     }
 
