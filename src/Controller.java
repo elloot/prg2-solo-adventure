@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -42,9 +43,31 @@ public class Controller {
         addAddSceneButtonListener();
         addAddLinkListener();
         addRemoveLinkListener();
+        addRemoveSceneListener();
         addSceneSelectorListener();
         addLinkSelectorListener();
         updateEditorView();
+    }
+
+    private void removeSelectedScene() {
+        Scene scene = getSelectedEditorScene();
+        ArrayList<Link> links = model.getLinks(scene.getId());
+        mySQLHandler.removeScene(scene.getId());
+        if (links != null && links.size() > 0) {
+            for (Link link : links) {
+                removeLink(link);
+            }
+        }
+    }
+
+    private void removeLink(Link l) {
+        mySQLHandler.removeLink(l.getSceneId(), l.getTargetId(), l.getDescription());
+    }
+
+    private void addRemoveSceneListener() {
+        editorView.getRemoveSceneButton().addActionListener(e -> {
+            removeSelectedScene();
+        });
     }
 
     private void removeSelectedLink() {
