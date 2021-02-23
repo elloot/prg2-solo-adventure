@@ -72,7 +72,7 @@ public class Controller {
 
     private void removeSelectedLink() {
         Link link = getSelectedEditorLink();
-        mySQLHandler.removeLink(link.getSceneId(), link.getTargetId(), link.getDescription());
+        removeLink(link);
         model.removeLink(link);
         updateEditorLinks();
     }
