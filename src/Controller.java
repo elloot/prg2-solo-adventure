@@ -130,7 +130,7 @@ public class Controller {
     }
 
     private void updateLinkGUISourceScene() {
-        linkCreationGUI.getSourceSceneBody().setText(getLinkGUISelectedTargetScene().getBody());
+        linkCreationGUI.getSourceSceneBody().setText(getSelectedEditorScene().getBody());
     }
 
     private void addLinkGUIAddLinkListener() {
