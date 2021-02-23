@@ -46,6 +46,10 @@ public class Controller {
         updateEditorView();
     }
 
+    private Link addLinkToDB(int sourceId, int targetId, String desc) {
+        return mySQLHandler.addLink(sourceId, targetId, desc);
+    }
+
     private void updateLinkGUI() {
         updateLinkGUIScenes();
         updateLinkGUITargetScene();
@@ -90,7 +94,8 @@ public class Controller {
 
     private void addLinkGUIAddLinkListener() {
         linkCreationGUI.getAddLinkButton().addActionListener(e -> {
-
+            model.addLink(addLinkToDB(getSelectedEditorScene().getId(), getLinkGUISelectedTargetScene().getId(),
+                    linkCreationGUI.getLinkDescription().getText()));
         });
     }
 
