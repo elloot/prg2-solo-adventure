@@ -91,4 +91,15 @@ public class MySQLHandler {
             return new Link(-1, -1, "");
         }
     }
+
+    public void removeLink(int sourceId, int targetId, String desc) {
+        try {
+            Statement stmt = connection.createStatement();
+            String SQLQuery = "DELETE FROM `solo-adventure`.`links` WHERE (story_id = '" + sourceId + "' AND " +
+                    "target_id = '" + targetId + "' AND description = '" + desc + "');";
+            stmt.execute(SQLQuery);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
 }
