@@ -77,4 +77,18 @@ public class MySQLHandler {
             return new Scene(-1, "");
         }
     }
+
+    public Link addLink(int sourceId, int targetId, String desc) {
+        try {
+            Statement stmt = connection.createStatement();
+            String SQLQuery =
+                    "INSERT INTO links(story_id, target_id, description) VALUES ("+ sourceId +"," + targetId + ",'" + desc +
+                            "')";
+            stmt.execute(SQLQuery);
+            return new Link(sourceId, targetId, desc);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return new Link(-1, -1, "");
+        }
+    }
 }
