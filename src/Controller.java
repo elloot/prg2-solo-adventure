@@ -55,9 +55,7 @@ public class Controller {
     }
 
     private void addRemoveLinkListener() {
-        editorView.getRemoveLinkButton().addActionListener(e -> {
-            removeSelectedLink();
-        });
+        editorView.getRemoveLinkButton().addActionListener(e -> removeSelectedLink());
     }
 
     private Link addLinkToDB(int sourceId, int targetId, String desc) {
@@ -107,10 +105,8 @@ public class Controller {
     }
 
     private void addLinkGUIAddLinkListener() {
-        linkCreationGUI.getAddLinkButton().addActionListener(e -> {
-            model.addLink(addLinkToDB(getSelectedEditorScene().getId(), getLinkGUISelectedTargetScene().getId(),
-                    linkCreationGUI.getLinkDescription().getText()));
-        });
+        linkCreationGUI.getAddLinkButton().addActionListener(e -> model.addLink(addLinkToDB(getSelectedEditorScene().getId(), getLinkGUISelectedTargetScene().getId(),
+                linkCreationGUI.getLinkDescription().getText())));
     }
 
     private void addAddLinkListener() {
