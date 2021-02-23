@@ -41,9 +41,19 @@ public class Controller {
         setLinks();
         addAddSceneButtonListener();
         addAddLinkListener();
+        addRemoveLinkListener();
         addSceneSelectorListener();
         addLinkSelectorListener();
         updateEditorView();
+    }
+
+    private void addRemoveLinkListener() {
+        editorView.getRemoveLinkButton().addActionListener(e -> {
+            Link link = getSelectedEditorLink();
+            mySQLHandler.removeLink(link.getSceneId(), link.getTargetId(), link.getDescription());
+            model.removeLink(link);
+            updateEditorLinks();
+        });
     }
 
     private Link addLinkToDB(int sourceId, int targetId, String desc) {
