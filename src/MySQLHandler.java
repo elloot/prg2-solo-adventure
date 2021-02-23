@@ -82,7 +82,7 @@ public class MySQLHandler {
         try {
             Statement stmt = connection.createStatement();
             String SQLQuery =
-                    "INSERT INTO links(story_id, target_id, description) VALUES ("+ sourceId +"," + targetId + ",'" + desc +
+                    "INSERT INTO links(story_id, target_id, description) VALUES ('"+ sourceId +"','" + targetId + "','" + desc +
                             "')";
             stmt.execute(SQLQuery);
             return new Link(sourceId, targetId, desc);
