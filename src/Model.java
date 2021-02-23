@@ -50,6 +50,10 @@ public class Model {
         links.get(l.getSceneId()).remove(l);
     }
 
+    public void removeScene(Scene s) {
+        scenes.remove(s.getId());
+    }
+
     public HashMap<Integer, ArrayList<Link>> getLinks() {
         return links;
     }
