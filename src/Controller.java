@@ -9,8 +9,8 @@ import java.util.HashMap;
 
 public class Controller {
     private StoryGUI view;
-    private Model model;
-    private MySQLHandler mySQLHandler;
+    private final Model model;
+    private final MySQLHandler mySQLHandler;
     private Scene currentScene;
     private EditorGUI editorView;
     private LinkCreationGUI linkCreationGUI;
