@@ -53,6 +53,7 @@ public class Controller {
         Scene scene = getSelectedEditorScene();
         removeLinks(model.getLinks(scene.getId()));
         mySQLHandler.removeScene(scene.getId());
+        model.removeScene(scene);
     }
 
     private void removeLinks(ArrayList<Link> links) {
@@ -70,6 +71,8 @@ public class Controller {
     private void addRemoveSceneListener() {
         editorView.getRemoveSceneButton().addActionListener(e -> {
             removeSelectedScene();
+            updateEditorScenes();
+            updateEditorLinks();
         });
     }
 
@@ -160,8 +163,10 @@ public class Controller {
 
     private void addSceneSelectorListener() {
         getEditorSceneSelector().addActionListener(e -> {
-            updateCurrentEditorScene();
-            updateEditorLinks();
+            if (getEditorSceneSelector().getItemCount() > 0) {
+                updateCurrentEditorScene();
+                updateEditorLinks();
+            }
         });
     }
 
