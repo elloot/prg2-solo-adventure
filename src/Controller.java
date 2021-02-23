@@ -47,12 +47,16 @@ public class Controller {
         updateEditorView();
     }
 
+    private void removeSelectedLink() {
+        Link link = getSelectedEditorLink();
+        mySQLHandler.removeLink(link.getSceneId(), link.getTargetId(), link.getDescription());
+        model.removeLink(link);
+        updateEditorLinks();
+    }
+
     private void addRemoveLinkListener() {
         editorView.getRemoveLinkButton().addActionListener(e -> {
-            Link link = getSelectedEditorLink();
-            mySQLHandler.removeLink(link.getSceneId(), link.getTargetId(), link.getDescription());
-            model.removeLink(link);
-            updateEditorLinks();
+            removeSelectedLink();
         });
     }
 
