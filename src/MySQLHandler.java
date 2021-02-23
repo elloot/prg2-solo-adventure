@@ -102,4 +102,14 @@ public class MySQLHandler {
             ex.printStackTrace();
         }
     }
+
+    public void removeScene(int id) {
+        try {
+            Statement stmt = connection.createStatement();
+            String SQLQuery = "DELETE FROM `solo-adventure`.`story` WHERE (id = '" + id + "')";
+            stmt.execute(SQLQuery);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
 }
